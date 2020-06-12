@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 //Static Files
-app.use('/files', express.static(join(__dirname, '../files')))
+app.use('/files', express.static(join(__dirname, '../../files')))
 
 //Routers
 app.use('/products', ProductsRouter)
