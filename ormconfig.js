@@ -5,7 +5,7 @@ dotenv.config({ path: resolve(__dirname, './local.env') })
 
 let entitiesDir = ''
 if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'dev') entitiesDir = join(__dirname, `./src/entities/**/*.ts`)
-else entitiesDir = join(__dirname, `./build/entities/**/*.js`)
+else entitiesDir = join(__dirname, `./build/src/entities/**/*.js`)
 
 module.exports = {
   type: 'mysql',
@@ -16,8 +16,8 @@ module.exports = {
   database: process.env.DB_DATABASE,
   logging: process.env.DB_LOGGING === 'true',
   entities: [entitiesDir],
-  migrations: [`${__dirname}/build/migration/**/*.js`],
-  subscribers: [`${__dirname}/build/subscriber/**/*.js`],
+  migrations: [`${__dirname}/build/src/migration/**/*.js`],
+  subscribers: [`${__dirname}/build/src/subscriber/**/*.js`],
   cli: {
     entitiesDir: 'src/entities',
     migrationsDir: 'src/migration',
